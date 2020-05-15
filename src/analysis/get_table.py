@@ -1,4 +1,4 @@
-from pull_nba_v2 import pull_nba
+from pull_nba import pull_nba
 from nba_json_to_DF import json_to_DF
 import pandas as pd
 import os
