@@ -30,3 +30,5 @@ def get_aggr_data(datadir, outdir="aggr_data"):
         )
         df.to_csv(output_file)
     return None
+
+get_aggr_data(r"C:\Users\suhri\PlayerClustering\src\scraping") #This will generate the folder with 5 csv files

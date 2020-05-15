@@ -1,7 +1,9 @@
-from pull_nba import pull_nba
-from nba_json_to_DF import json_to_DF
+from pull_nba import pull_nba #use sys to import directly later
+from json_to_DF import json_to_DF
 import pandas as pd
 import os
+import numpy as np
+
 s = ['iso','tr','prb','prr','pu','su','ho','cut','os','putback','misc']
 
 def get_all_files(SeasonYear='2018', PlayerOrTeam = 'P'):
@@ -17,7 +19,7 @@ def get_pca_table(InputDir, SeasonYear='2018', PlayerOrTeam = 'P'):
     Get table for pca
     '''
     new_df = pd.DataFrame()
-    poss = pd.Series()
+    poss = pd.Series(dtype = np.dtype('float'))
 
     for PlayType in s:
         filename = 'leaguedash_' + PlayType + '_' + SeasonYear + '_' + PlayerOrTeam + '.json'
@@ -49,5 +51,5 @@ def get_pca_table(InputDir, SeasonYear='2018', PlayerOrTeam = 'P'):
     return new_df
 
 get_all_files()
-get_pca_table
+get_pca_table(r"C:\Users\suhri\PlayerClustering\src\scraping") #this is where all the jsons are...#just testing
     

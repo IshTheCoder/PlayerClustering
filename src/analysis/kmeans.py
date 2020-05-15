@@ -56,3 +56,4 @@ def k_means(fname, dim=3, cluster=8):
     return clusters_projected
 
 
+# k_means(r"C:\Users\suhri\PlayerClustering\src\analysis\aggr_data\2017_pca_table.csv") #This will reproduce the k means clustering as in the notebook

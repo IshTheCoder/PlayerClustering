@@ -192,7 +192,7 @@ def draw_elbow_line(fname, dim=3):
 
 
 
-# names, labels, distance = k_means('aggr_data/2019_pca_table.csv', 3, 8)
+# names, labels, distance = k_means('aggr_data/2019_pca_table.csv', 3, 8) #UNCOMMENT THIS PART TO SEE THE MAGIC!
 # print(calculate_top5(distance, names))
 
 # k_means('aggr_data/2015_pca_table.csv', 3, 5)

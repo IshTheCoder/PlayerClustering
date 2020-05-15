@@ -1,3 +1,6 @@
+from pull_nba import pull_nba
+from json_to_DF import json_to_DF
+import time
 def get_data():
     '''
     This function is to get all year data from one click.
@@ -17,3 +20,4 @@ def get_data():
                 print('Export Playtype = {}, Year = {}, Player or Team = {} successed'.format(i, j, k))
                 time.sleep(20)
     return 'Finished'
+get_data()
