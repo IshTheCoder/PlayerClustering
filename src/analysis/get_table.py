@@ -1,5 +1,5 @@
-from pull_nba import pull_nba #use sys to import directly later
-from json_to_DF import json_to_DF
+from scraping import pull_nba as pnb #use sys to import directly later
+from scraping import json_to_DF as jDF
 import pandas as pd
 import os
 import numpy as np
@@ -12,7 +12,7 @@ def get_all_files(SeasonYear='2018', PlayerOrTeam = 'P'):
     '''
 
     for PlayType in s:
-        pull_nba(PlayType, SeasonYear, PlayerOrTeam)
+        pnb.pull_nba(PlayType, SeasonYear, PlayerOrTeam)
 
 def get_pca_table(InputDir, SeasonYear='2018', PlayerOrTeam = 'P'):
     '''
@@ -24,7 +24,7 @@ def get_pca_table(InputDir, SeasonYear='2018', PlayerOrTeam = 'P'):
     for PlayType in s:
         filename = 'leaguedash_' + PlayType + '_' + SeasonYear + '_' + PlayerOrTeam + '.json'
         filename = os.path.join(InputDir, filename)
-        df = json_to_DF(filename)
+        df = jDF.json_to_DF(filename)
 
         col_freq_name = PlayType + '_' + 'freq'
         col_ppp_name = PlayType + '_' + 'ppp'
