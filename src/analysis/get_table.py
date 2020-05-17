@@ -28,11 +28,13 @@ def get_pca_table(InputDir, SeasonYear='2018', PlayerOrTeam = 'P'):
 
         col_freq_name = PlayType + '_' + 'freq'
         col_ppp_name = PlayType + '_' + 'ppp'
+        col_poss_name= PlayType+'_'+'poss'
 
         df_1 = pd.DataFrame()
         df_1['PLAYER_NAME'] = df['PLAYER_NAME']
         df_1[col_freq_name] = df['POSS_PCT']
         df_1[col_ppp_name]=df['PPP']
+        df_1[col_poss_name]=df['POSS']*df['GP']
 
         if (new_df.empty):
             new_df = df_1
@@ -50,6 +52,3 @@ def get_pca_table(InputDir, SeasonYear='2018', PlayerOrTeam = 'P'):
     new_df = new_df.set_index('PLAYER_NAME')
     return new_df
 
-get_all_files()
-get_pca_table(r"C:\Users\suhri\PlayerClustering\src\scraping") #this is where all the jsons are...#just testing
-    
