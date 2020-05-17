@@ -1,5 +1,5 @@
 import requests
-
+import os
 '''
 Function to request jsons data from playtype.
 User must specify what type of playtype, and which season year. Optional 
@@ -33,12 +33,12 @@ Expected inputs:
 playtype_shortcut = {'iso':'Isolation', 'tr':'Transition', 'prb':'PRBallHandler', 'prr':'PRRollMan','pu':'Postup','su': 'Spotup', 'ho':'Handoff','cut':'Cut', 'os':'Offscreen', 'putback':'OffRebound', 'misc':'Misc'}
 seasonyear_shortcut = {'2019':'2019-20', '2018':'2018-19','2017':'2017-18', '2016':'2016-17','2015':'2015-16'}
 
-def pull_nba(PlayType, SeasonYear,PlayerOrTeam='P'):
+def pull_nba(PlayType, SeasonYear,PlayerOrTeam='P',outdir="data/all_jsons1/"):
     '''
     function that extracts playtype data into json file.
     must specify playtype, season year. can specify data based by players or by team.
     '''
-
+    
     pt = playtype_shortcut[PlayType]
     sy = seasonyear_shortcut[SeasonYear]
 
@@ -46,6 +46,6 @@ def pull_nba(PlayType, SeasonYear,PlayerOrTeam='P'):
     request_str = 'https://stats.nba.com/stats/synergyplaytypes?LeagueID=00&PerMode=PerGame&PlayType=' + pt + '&PlayerOrTeam=' + PlayerOrTeam + '&SeasonType=Regular+Season&SeasonYear=' + sy + '&TypeGrouping=offensive'
     response = requests.get(request_str, headers= stats_headers)
 
-    wb_filename = 'leaguedash_' + PlayType + '_' + SeasonYear + '_' + PlayerOrTeam + '.json'
+    wb_filename = outdir+'leaguedash_' + PlayType + '_' + SeasonYear + '_' + PlayerOrTeam + '.json'
     with open(wb_filename, 'wb') as f:
         f.write(response.content)

@@ -40,9 +40,5 @@ def get_aggr_data(datadir, outdir="data/data_cleaned/pca_data",possdir='data/dat
         )
         df.to_csv(output_file)
         df1.to_csv(output_poss_file)
-
-
-        
     return None
-
 get_aggr_data('data/all_jsons')
