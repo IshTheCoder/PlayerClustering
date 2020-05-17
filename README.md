@@ -33,17 +33,19 @@ requests        2.20.1
   * visualization: Plot and visualize the results.
   
 ## How to run the code
+* Clone the repo
+  git clone https://github.com/IshTheCoder/PlayerClustering.git
 * Fetch data:
 ```
- -> run pull_data.py: Pull Json file from stats.nba.com.
- -> run json_to_DF.py and get_data.py: Transfer Json file to csv format.
+python3 src/scraping/get_data.py 
 ```
+you can get all the json files, which saved in data/all_jsons
 * Process data:
 ```
- -> run get_table.py and get_pca_aggr_data.py: Clean data and aquire yearly aggregated data.
- -> run kmeans.py: Perform PCA algorithm on cleaned data and use k-means method to get clustered data.
- -> run kmeans_top5.py: Extract information of 5 typical players from each cluster.
+python3 src/analysis/get_pca_aggr_data.py
 ```
+you can get the poss.csv and pca.csv in data/data_cleaned
+
 * Visualize data:
 ```
  -> run graph_drawer.py: Obtain playtype frequency based on yearly average.
