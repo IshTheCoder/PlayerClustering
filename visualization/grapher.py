@@ -85,36 +85,40 @@ for each in final_list:
     print(get_silscores('aggr_data/'+each+'_pca_table.csv', dim=3))
 
 #######################
+
+
 #data = [plotly.graph_objs.Scatter3d(x=X[:, 1], y=X[:, 0], z=X[:, 2], text = names, hoverinfo = 'text', mode='markers', marker=dict(color=labels))]
 # fig = go.Figure()
-# final_list=['2015','2016','2017','2018','2019']
-# dims = [5, 6, 7, 8, 8]
-# count =0 
-
-# for each in final_list:
-
-# 	names, X, labels = k_means('aggr_data/'+each+'_pca_table.csv', dim=3, cluster_num=dims[count])
-# 	count+=1
-# 	fig.add_trace(
-# 	go.Scatter3d(x=X[:, 1], y=X[:, 0], z=X[:, 2], text = names, hoverinfo = 'text', mode='markers', marker=dict(color=labels), visible=False, name="Player Clusters for " + each)
-# 	)
-
-# print(len(fig.data))
-# fig.data[0].visible = True
-
-# steps = []
-# for i in range(len(fig.data)):
-#     step = dict(
-#         method="restyle",
-#         args=["visible", [False] * len(fig.data)],
-#         label='Year ' + str(i + 2015)
-
-#     )
-#     step["args"][1][i] = True  # Toggle i'th trace to "visible"
-#     steps.append(step)
 
 
-# #plotly.offline.plot(data, filename='Clusters_9.html')
+final_list=['2015','2016','2017','2018','2019']
+dims = [5, 6, 7, 8, 8]
+count =0 
+
+for each in final_list:
+
+	names, X, labels = k_means('aggr_data/'+each+'_pca_table.csv', dim=3, cluster_num=dims[count])
+	count+=1
+	fig.add_trace(
+	go.Scatter3d(x=X[:, 1], y=X[:, 0], z=X[:, 2], text = names, hoverinfo = 'text', mode='markers', marker=dict(color=labels), visible=False, name="Player Clusters for " + each)
+	)
+
+print(len(fig.data))
+fig.data[0].visible = True
+
+steps = []
+for i in range(len(fig.data)):
+    step = dict(
+        method="restyle",
+        args=["visible", [False] * len(fig.data)],
+        label='Year ' + str(i + 2015)
+
+    )
+    step["args"][1][i] = True  # Toggle i'th trace to "visible"
+    steps.append(step)
+
+
+#plotly.offline.plot(data, filename='Clusters_9.html')
 
 # sliders = [dict(
 #     active=5,

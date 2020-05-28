@@ -3,6 +3,8 @@ from scraping import json_to_DF as jDF
 import pandas as pd
 import os
 import numpy as np
+import pathlib
+
 
 s = ['iso','tr','prb','prr','pu','su','ho','cut','os','putback','misc']
 
@@ -51,5 +53,5 @@ def get_pca_table(InputDir, SeasonYear='2018', PlayerOrTeam = 'P'):
     return new_df
 
 get_all_files()
-get_pca_table(r"C:\Users\suhri\PlayerClustering\src\scraping") #this is where all the jsons are...#just testing
+print(get_pca_table(pathlib.Path().absolute())) #this is where all the jsons are...#just testing
     
