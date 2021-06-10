@@ -4,7 +4,7 @@ dash-html-components==0.13.2
 dash-renderer==0.15.0
 dask==0.18.2
 decorator==4.3.0
-Django==2.0
+Django==2.2.24
 django-annoying==0.10.4
 django-appconf==1.0.3
 django-imagekit==4.0.2
