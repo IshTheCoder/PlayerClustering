@@ -2,7 +2,7 @@ dash==0.30.0
 dash-core-components==0.38.0
 dash-html-components==0.13.2
 dash-renderer==0.15.0
-dask==0.18.2
+dask==2021.10.0
 decorator==4.3.0
 Django==2.0
 django-annoying==0.10.4
