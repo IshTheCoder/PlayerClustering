@@ -59,7 +59,7 @@ pexpect==4.2.1
 pickleshare==0.7.4
 pilkit==2.0
 Pillow==5.2.0
-pipenv==2018.11.26
+pipenv==2022.1.8
 plotly==3.4.1
 prompt-toolkit==1.0.15
 protobuf==3.7.1
